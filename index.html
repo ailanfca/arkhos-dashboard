@@ -37,6 +37,7 @@ body{background:#141414;color:#f0f0f0;font-family:system-ui,-apple-system,sans-s
 .meta-row .val{font-weight:500;color:#f0f0f0}
 .meta-row .val.green{color:#4ade80}
 .meta-row .val.amber{color:#fbbf24}
+.total-row{border-top:1px solid rgba(255,255,255,0.1)!important;margin-top:4px;padding-top:8px!important}.total-row .lbl{color:rgba(255,255,255,0.7)!important;font-weight:500}.total-row .val{color:#f0f0f0!important;font-weight:600}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:520px){.two-col{grid-template-columns:1fr}}
 .goal-row{margin-bottom:12px}
@@ -255,7 +256,7 @@ function renderRevision(r){
         <div class="meta-row"><span class="lbl">Total limpiezas</span><span class="val">${r.totalLimpiezas}</span></div>
         <div class="meta-row"><span class="lbl">Costo personal</span><span class="val">${fmt(r.costoPersonal)}</span></div>
         <div class="meta-row"><span class="lbl">Comisiones</span><span class="val">${fmt(r.comisiones)}</span></div>
-        <div class="meta-row"><span class="lbl">Total pagado</span><span class="val">${fmt(r.totalPagadoLimpiezas)}</span></div>
+        <div class="meta-row total-row"><span class="lbl">Total pagado</span><span class="val">${fmt(r.totalPagadoLimpiezas)}</span></div>
       </div>
       <div class="meta-block">
         <div class="meta-title">Servicios (CFE, Agua, Gas, Internet)</div>
@@ -263,16 +264,16 @@ function renderRevision(r){
         <div class="meta-row"><span class="lbl">Agua</span><span class="val">${fmt(r.agua)}</span></div>
         <div class="meta-row"><span class="lbl">Gas</span><span class="val">${fmt(r.gas)}</span></div>
         <div class="meta-row"><span class="lbl">Internet / Fraxc</span><span class="val">${fmt(r.internetFraxc)}</span></div>
-        <div class="meta-row"><span class="lbl">Total servicios</span><span class="val">${fmt(r.totalServicios)}</span></div>
+        <div class="meta-row total-row"><span class="lbl">Total servicios</span><span class="val">${fmt(r.totalServicios)}</span></div>
       </div>
     </div>
     <div class="meta-block">
       <div class="meta-title">Egresos de insumos por espacio</div>
-      <div class="meta-row"><span class="lbl">Total gastado en insumos</span><span class="val">${fmt(r.totalInsumos)}</span></div>
       <div class="meta-row"><span class="lbl">Artículos tienda (cottonelle, más color, quita manchas)</span><span class="val">${fmt(3057)}</span></div>
       <div class="meta-row"><span class="lbl">Abanicos de techo (compra + instalación)</span><span class="val">${fmt(9506)}</span></div>
       <div class="meta-row"><span class="lbl">Boiler Creta 2 (compra + instalación)</span><span class="val">${fmt(10249)}</span></div>
       <div class="meta-row"><span class="lbl">Seguro ventana Creta 1 + ajuste boiler</span><span class="val">${fmt(700)}</span></div>
+      <div class="meta-row total-row"><span class="lbl">Total egresos de insumos</span><span class="val">${fmt(r.totalInsumos)}</span></div>
     </div>
   `;
 }
