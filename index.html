@@ -563,6 +563,18 @@
                 const rev=REVISIONES.find(r=>r.id===activeTab);
 
                 if(rev) contentEl.innerHTML=renderRevision(rev);
+  }
+}
+
+function switchTab(id){
+  activeTab=id;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
 
           }
 
