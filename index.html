@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+  <html lang="es">
+
+  <head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Dashboard Arkhös — Abril 2026</title>
+
+  <style>
+
+  ,::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{background:#141414;color:#f0f0f0;font-family:system-ui,-apple-system,sans-serif;font-size:14px;min-height:100vh}
+
+.app{max-width:900px;margin:0 auto;padding:0 0 3rem}
+
+.app-header{padding:1.5rem 1rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+
+.brand{font-size:11px;font-weight:600;letter-spacing:0.14em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:4px}
+
+.app-title{font-size:20px;font-weight:500;color:#f0f0f0}
+
+.tabs{display:flex;gap:2px;padding:0.75rem 1rem 0;overflow-x:auto;scrollbar-width:none}
+
+.tabs::-webkit-scrollbar{display:none}
+
+.tab-btn{padding:7px 14px;border-radius:6px 6px 0 0;border:none;background:transparent;color:rgba(255,255,255,0.4);font-size:13px;font-family:inherit;cursor:pointer;white-space:nowrap;transition:all 0.15s;border-bottom:2px solid transparent}
+
+.tab-btn:hover{color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.04)}
+
+.tab-btn.active{color:#f0f0f0;background:rgba(255,255,255,0.07);border-bottom:2px solid #4ade80}
+
+.tab-btn.tab-resumen.active{border-bottom-color:#60a5fa}
+
+.content{padding:1.25rem 1rem}
+
+.section-label{font-size:10px;font-weight:600;letter-spacing:0.1em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;margin-top:1.5rem}
+
+.section-label:first-child{margin-top:0}
+
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:0.5rem}
+
+.kpi-card{background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:14px 16px}
+
+.kpi-label{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:6px}
+
+.kpi-value{font-size:22px;font-weight:500}
+
+.kpi-sub{font-size:11px;margin-top:5px;color:rgba(255,255,255,0.35)}
+
+.kpi-green{background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2)}.kpi-green .kpi-value{color:#4ade80}.kpi-green .kpi-label{color:rgba(74,222,128,0.7)}
+
+  .kpi-blue{background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2)}.kpi-blue .kpi-value{color:#60a5fa}.kpi-blue .kpi-label{color:rgba(96,165,250,0.7)}
+
+  .kpi-amber{background:rgba(251,191,36,0.08);border-color:rgba(251,191,36,0.2)}.kpi-amber .kpi-value{color:#fbbf24}.kpi-amber .kpi-label{color:rgba(251,191,36,0.7)}
+
+  .kpi-neutral .kpi-value{color:#f0f0f0}
+
+  .meta-block{background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+
+.meta-title{font-size:10px;font-weight:600;letter-spacing:0.09em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px}
+
+.meta-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:13px}
+
+.meta-row:last-child{border-bottom:none}
+
+  .meta-row .lbl{color:rgba(255,255,255,0.5)}
+
+.meta-row .val{font-weight:500;color:#f0f0f0}
+
+.meta-row .val.green{color:#4ade80}
+
+.meta-row .val.amber{color:#fbbf24}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+@media(max-width:520px){.two-col{grid-template-columns:1fr}}
+
+.goal-row{margin-bottom:12px}
+
+  .goal-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;font-size:13px}
+
+.goal-header .name{color:rgba(255,255,255,0.6)}
+
+.goal-header .vals{display:flex;gap:8px;align-items:baseline}
+
+.goal-header .actual{font-weight:500;color:#f0f0f0;font-size:15px}
+
+.goal-header .meta-lbl{font-size:11px;color:rgba(255,255,255,0.3)}
+
+.goal-bar-bg{height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden}
+
+.goal-bar-fill{height:100%;border-radius:3px;transition:width 0.6s ease}
+
+.fill-green{background:#4ade80}.fill-amber{background:#fbbf24}.fill-red{background:#f87171}
+
+  .pct-label{font-size:11px;margin-top:4px}
+
+.pct-green{color:#4ade80}.pct-amber{color:#fbbf24}.pct-red{color:#f87171}
+
+  .occ-table{width:100%;border-collapse:collapse;font-size:13px}
+
+.occ-table th{font-size:10px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.3);text-transform:uppercase;text-align:left;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.07)}
+
+.occ-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.05);color:#f0f0f0}
+
+.occ-table tr:last-child td{border-bottom:none}
+
+.occ-table .num{color:rgba(255,255,255,0.3);font-size:12px}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:500}
+
+.badge-green{background:rgba(74,222,128,0.12);color:#4ade80}
+
+.badge-amber{background:rgba(251,191,36,0.12);color:#fbbf24}
+
+.badge-red{background:rgba(248,113,113,0.12);color:#f87171}
+
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+.dot-green{background:#4ade80}.dot-amber{background:#fbbf24}.dot-red{background:#f87171}
+
+  .legend{display:flex;gap:16px;margin-bottom:12px}
+
+.legend-item{font-size:12px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:5px}
+
+.summary-table{width:100%;border-collapse:collapse;font-size:13px}
+
+.summary-table th{font-size:10px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.3);text-transform:uppercase;text-align:left;padding:8px;border-bottom:1px solid rgba(255,255,255,0.1)}
+
+.summary-table td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,0.05);color:#f0f0f0}
+
+.summary-table tr:last-child td{border-bottom:none}
+
+.summary-table tr:hover td{background:rgba(255,255,255,0.03)}
+
+.summary-note{font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;font-style:italic}
+
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:1.25rem 0}
+
+</style>
+
+  </head>
+
+  <body>
+
+  <div class="app">
+
+    <header class="app-header">
+
+      <div class="brand">Arkhös — Estado de Resultados</div>
+
+    <div class="app-title">Abril 2026</div>
+
+  </header>
+
+    <nav class="tabs" id="tabs"></nav>
+
+    <main class="content" id="content"></main>
+
+  </div>
+
+  <script>
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('es-MX');
+
+const pct = (n) => (n * 100).toFixed(1) + '%';
+
+const REVISIONES = [
+
+{
+
+    id:"rev_28abr",
+
+          label:"28 abr",
+
+          fecha:"28 de abril, 2026",
+
+          utilidad:201067,utilidadMeta:170000,
+
+          ocupacion:0.9029,totalNoches:507,nochesTotales:561,
+
+          facturacion:435100,facturacionMeta:430000,
+
+          gastos:273819,gastosMeta:250000,
+
+          balanceBancario:1048834,
+
+          pendientesPorEntrar:39787,
+
+          totalAcumulado:474887,
+
+          capInstaladaUSD:650,capInstaladaMXN:10725,capConDescuento:8938,nochesDisponibles:12,
+
+          facturacionProyectada:483824,utilidadProyectada:211792,
+
+          totalLimpiezas:78,costoPersonal:41000,comisiones:8300,totalPagadoLimpiezas:52414,
+
+          cfeLuz:1078,agua:5362,gas:3045,internetFraxc:8851,totalServicios:18336,
+
+          totalInsumos:27362,
+
+          espacios:[
+
+      {num:1,nombre:"Aurea 1 (Casa)",noches:30,pct:1.00},
+
+{num:2,nombre:"Aurea 2 (Casa)",noches:24,pct:0.8571},
+
+{num:3,nombre:"Aurea 2 Depa 2",noches:24,pct:0.80},
+
+{num:4,nombre:"Aurea 3 (Casa)",noches:26,pct:0.8966},
+
+{num:5,nombre:"Aurea 3 Depa 1",noches:30,pct:1.00},
+
+{num:6,nombre:"Aurea 3 Depa 2",noches:27,pct:0.90},
+
+{num:7,nombre:"Aurea 3 Depa 3",noches:22,pct:0.8148},
+
+{num:8,nombre:"Creta 1 Depa 1",noches:24,pct:0.8571},
+
+{num:9,nombre:"Creta 1 Depa 2",noches:28,pct:0.9333},
+
+{num:10,nombre:"Creta 1 Depa 3",noches:26,pct:0.8667},
+
+{num:11,nombre:"Creta 1 Depa 4",noches:29,pct:0.9667},
+
+{num:12,nombre:"Creta 1 Depa 5",noches:26,pct:0.8667},
+
+{num:13,nombre:"Creta 2 Depa 1",noches:26,pct:0.8966},
+
+{num:14,nombre:"Creta 2 Depa 2",noches:28,pct:0.9333},
+
+{num:15,nombre:"Creta 2 Depa 3",noches:27,pct:0.90},
+
+{num:16,nombre:"Creta 3 Depa 1",noches:28,pct:0.9333},
+
+{num:17,nombre:"Creta 3 Depa 2",noches:28,pct:0.9333},
+
+{num:18,nombre:"Creta 3 Depa 3",noches:27,pct:0.90},
+
+{num:19,nombre:"Creta 3 Depa 4",noches:27,pct:0.90}
+
+    ]
+
+}
+
+];
+
+function badgeClass(p){return p>=0.85?'badge-green':p>=0.75?'badge-amber':'badge-red'}
+
+function dotClass(p){return p>=0.85?'dot-green':p>=0.75?'dot-amber':'dot-red'}
+
+function fillClass(ratio){return ratio<=1?'fill-green':ratio<=1.15?'fill-amber':'fill-red'}
+
+function pctLabel(ratio,inverse){
+
+  const over=ratio>1;
+
+  const cls=over?(inverse?'pct-amber':'pct-green'):'pct-red';
+
+  const txt=Math.round(ratio*100)+'% — '+(over?(inverse?'por encima del límite':'meta superada'):'por debajo de meta');
+
+  return `<span class="${cls}">${txt}</span>`;
+
+}
+
+function renderResumen(){
+
+  if(REVISIONES.length===0) return '<p style="color:rgba(255,255,255,0.4);padding:2rem 0;">No hay revisiones cargadas aún.</p>';
+
+  const last=REVISIONES[REVISIONES.length-1];
+
+  const rows=REVISIONES.map(r=>`
+
+    <tr>
+
+      <td>${r.fecha}</td>
+
+      <td>${fmt(r.facturacion)}</td>
+
+      <td>${fmt(r.gastos)}</td>
+
+      <td style="color:#4ade80">${fmt(r.utilidad)}</td>
+
+      <td><span class="badge ${badgeClass(r.ocupacion)}"><span class="dot ${dotClass(r.ocupacion)}"></span>${(r.ocupacion*100).toFixed(1)}%</span></td>
+
+      <td>${fmt(r.balanceBancario)}</td>
+
+    </tr>`).join('');
+
+  return `
+
+    <div class="section-label">Ultima revisión — ${last.fecha}</div>
+
+        <div class="kpi-grid">
+
+          <div class="kpi-card kpi-green"><div class="kpi-label">Utilidad neta</div><div class="kpi-value">${fmt(last.utilidad)}</div><div class="kpi-sub">Meta ${fmt(last.utilidadMeta)} · +${Math.round((last.utilidad/last.utilidadMeta-1)*100)}%</div></div>
+
+          <div class="kpi-card kpi-green"><div class="kpi-label">Ocupación</div><div class="kpi-value">${(last.ocupacion*100).toFixed(1)}%</div><div class="kpi-sub">${last.totalNoches} / ${last.nochesTotales} noches</div></div>
+
+        <div class="kpi-card kpi-blue"><div class="kpi-label">Facturación</div><div class="kpi-value">${fmt(last.facturacion)}</div><div class="kpi-sub">Meta ${fmt(last.facturacionMeta)}</div></div>
+
+        <div class="kpi-card kpi-neutral"><div class="kpi-label">Gastos</div><div class="kpi-value">${fmt(last.gastos)}</div><div class="kpi-sub">Meta ${fmt(last.gastosMeta)}</div></div>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Comparativa de revisiones</div>
+
+    <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
+
+      <table class="summary-table">
+
+        <thead><tr><th>Revisión</th><th>Facturación</th><th>Gastos</th><th>Utilidad</th><th>Ocupación</th><th>Balance banco</th></tr></thead>
+
+          <tbody>${rows}</tbody>
+
+        </table>
+
+      </div>
+
+      <p class="summary-note">El resumen se actualiza automáticamente cada vez que se agrega una nueva revisión.</p>
+
+  `;
+
+        }
+
+function renderRevision(r){
+
+  const uRatio=r.utilidad/r.utilidadMeta;
+
+  const fRatio=r.facturacion/r.facturacionMeta;
+
+  const gRatio=r.gastos/r.gastosMeta;
+
+  const espaciosRows=r.espacios.map(e=>{
+
+    const p=Math.round(e.pct*100);
+
+    return `<tr><td class="num">${e.num}</td><td>${e.nombre}</td><td>${e.noches}</td><td><span class="badge ${badgeClass(e.pct)}"><span class="dot ${dotClass(e.pct)}"></span>${p}%</span></td></tr>`;
+
+}).join('');
+
+  return `
+
+    <div class="section-label">Indicadores principales</div>
+
+        <div class="kpi-grid">
+
+          <div class="kpi-card kpi-green"><div class="kpi-label">Utilidad neta</div><div class="kpi-value">${fmt(r.utilidad)}</div><div class="kpi-sub">Meta ${fmt(r.utilidadMeta)} · +${Math.round((uRatio-1)*100)}%</div></div>
+
+          <div class="kpi-card kpi-green"><div class="kpi-label">Ocupación acumulada</div><div class="kpi-value">${(r.ocupacion*100).toFixed(1)}%</div><div class="kpi-sub">${r.totalNoches} / ${r.nochesTotales} noches</div></div>
+
+        <div class="kpi-card kpi-blue"><div class="kpi-label">Facturación al día</div><div class="kpi-value">${fmt(r.facturacion)}</div><div class="kpi-sub">Meta ${fmt(r.facturacionMeta)} · +${Math.round((fRatio-1)*100)}%</div></div>
+
+        <div class="kpi-card kpi-neutral"><div class="kpi-label">Gastos del mes</div><div class="kpi-value">${fmt(r.gastos)}</div><div class="kpi-sub">Meta ${fmt(r.gastosMeta)} · +${Math.round((gRatio-1)*100)}%</div></div>
+
+        <div class="kpi-card kpi-neutral"><div class="kpi-label">Balance bancario</div><div class="kpi-value">${fmt(r.balanceBancario)}</div><div class="kpi-sub">Saldo al día</div></div>
+
+      <div class="kpi-card kpi-amber"><div class="kpi-label">Pendientes por entrar</div><div class="kpi-value">${fmt(r.pendientesPorEntrar)}</div><div class="kpi-sub">Por enviar de Airbnb</div></div>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Avance vs metas — Abril 2026</div>
+
+      <div class="meta-block">
+
+        <div class="goal-row">
+
+          <div class="goal-header"><span class="name">Ingresos brutos</span><div class="vals"><span class="actual">${fmt(r.facturacion)}</span><span class="meta-lbl">/ ${fmt(r.facturacionMeta)}</span></div></div>
+
+          <div class="goal-bar-bg"><div class="goal-bar-fill fill-green" style="width:${Math.min(fRatio,1)*100}%"></div></div>
+
+          <div class="pct-label">${pctLabel(fRatio,false)}</div>
+
+        </div>
+
+        <div class="goal-row">
+
+          <div class="goal-header"><span class="name">Egresos brutos</span><div class="vals"><span class="actual">${fmt(r.gastos)}</span><span class="meta-lbl">/ ${fmt(r.gastosMeta)}</span></div></div>
+
+          <div class="goal-bar-bg"><div class="goal-bar-fill ${fillClass(gRatio)}" style="width:${Math.min(gRatio,1)*100}%"></div></div>
+
+          <div class="pct-label">${pctLabel(gRatio,true)}</div>
+
+        </div>
+
+        <div class="goal-row" style="margin-bottom:0">
+
+          <div class="goal-header"><span class="name">Utilidad neta</span><div class="vals"><span class="actual">${fmt(r.utilidad)}</span><span class="meta-lbl">/ ${fmt(r.utilidadMeta)}</span></div></div>
+
+          <div class="goal-bar-bg"><div class="goal-bar-fill fill-green" style="width:${Math.min(uRatio,1)*100}%"></div></div>
+
+          <div class="pct-label">${pctLabel(uRatio,false)}</div>
+
+        </div>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Proyección con capacidad instalada disponible</div>
+
+      <div class="two-col">
+
+        <div class="meta-block">
+
+          <div class="meta-title">Capacidad instalada hoy</div>
+
+        <div class="meta-row"><span class="lbl">Noches disponibles</span><span class="val">${r.nochesDisponibles} noches</span></div>
+
+          <div class="meta-row"><span class="lbl">Tarifa base</span><span class="val">USD $${r.capInstaladaUSD}</span></div>
+
+          <div class="meta-row"><span class="lbl">Valor en MXN</span><span class="val">${fmt(r.capInstaladaMXN)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Con descuento 20%</span><span class="val">${fmt(r.capConDescuento)}</span></div>
+
+        </div>
+
+        <div class="meta-block">
+
+          <div class="meta-title">Facturación proyectada total</div>
+
+        <div class="meta-row"><span class="lbl">Facturación al día</span><span class="val">${fmt(r.facturacion)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Pendientes por entrar</span><span class="val">${fmt(r.pendientesPorEntrar)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Total acumulado</span><span class="val">${fmt(r.totalAcumulado)}</span></div>
+
+          <div class="meta-row"><span class="lbl">+ Cap. instalada (20%)</span><span class="val">+ ${fmt(r.capConDescuento)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Proyección total</span><span class="val">${fmt(r.facturacionProyectada)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Utilidad proyectada</span><span class="val green">${fmt(r.utilidadProyectada)}</span></div>
+
+        </div>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Ocupación por espacio — Abril 2026</div>
+
+      <div class="legend">
+
+        <div class="legend-item"><span class="dot dot-green"></span>≥ 85% excelente</div>
+
+        <div class="legend-item"><span class="dot dot-amber"></span>75–84% aceptable</div>
+
+        <div class="legend-item"><span class="dot dot-red"></span>&lt; 75% atención</div>
+
+      </div>
+
+      <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
+
+        <table class="occ-table">
+
+          <thead><tr><th>#</th><th>Espacio</th><th>Noches</th><th>Ocupación</th></tr></thead>
+
+          <tbody>${espaciosRows}</tbody>
+
+          <tfoot><tr style="background:rgba(255,255,255,0.03)"><td colspan="2" style="padding:8px;font-weight:500">Total</td><td style="padding:8px;font-weight:500">${r.totalNoches}</td><td style="padding:8px"><span class="badge badge-green"><span class="dot dot-green"></span>${(r.ocupacion*100).toFixed(1)}%</span></td></tr></tfoot>
+
+        </table>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Resumen de egresos del mes</div>
+
+    <div class="two-col">
+
+      <div class="meta-block">
+
+        <div class="meta-title">Limpiezas y mantenimiento</div>
+
+        <div class="meta-row"><span class="lbl">Total limpiezas</span><span class="val">${r.totalLimpiezas}</span></div>
+
+          <div class="meta-row"><span class="lbl">Costo personal</span><span class="val">${fmt(r.costoPersonal)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Comisiones</span><span class="val">${fmt(r.comisiones)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Total pagado</span><span class="val">${fmt(r.totalPagadoLimpiezas)}</span></div>
+
+        </div>
+
+        <div class="meta-block">
+
+          <div class="meta-title">Servicios (CFE, Agua, Gas, Internet)</div>
+
+          <div class="meta-row"><span class="lbl">CFE</span><span class="val">${fmt(r.cfeLuz)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Agua</span><span class="val">${fmt(r.agua)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Gas</span><span class="val">${fmt(r.gas)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Internet / Fraxc</span><span class="val">${fmt(r.internetFraxc)}</span></div>
+
+          <div class="meta-row"><span class="lbl">Total servicios</span><span class="val">${fmt(r.totalServicios)}</span></div>
+
+        </div>
+
+      </div>
+
+      <div class="meta-block">
+
+        <div class="meta-title">Egresos de insumos por espacio</div>
+
+      <div class="meta-row"><span class="lbl">Total gastado en insumos</span><span class="val">${fmt(r.totalInsumos)}</span></div>
+
+        <div class="meta-row"><span class="lbl">Artículos tienda (cottonelle, más color, quita manchas)</span><span class="val">${fmt(3057)}</span></div>
+
+        <div class="meta-row"><span class="lbl">Abanicos de techo (compra + instalación)</span><span class="val">${fmt(9506)}</span></div>
+
+        <div class="meta-row"><span class="lbl">Boiler Creta 2 (compra + instalación)</span><span class="val">${fmt(10249)}</span></div>
+
+        <div class="meta-row"><span class="lbl">Seguro ventana Creta 1 + ajuste boiler</span><span class="val">${fmt(700)}</span></div>
+
+      </div>
+
+    `;
+
+}
+
+let activeTab = 'resumen';
+
+function render(){
+
+  const tabsEl=document.getElementById('tabs');
+
+  const contentEl=document.getElementById('content');
+
+  // Build tabs
+
+  let tabsHTML=`<button class="tab-btn tab-resumen${activeTab==='resumen'?' active':''} " onclick="switchTab('resumen')">Resumen general</button>`;
+
+  REVISIONES.forEach(r=>{
+
+        tabsHTML+=`<button class="tab-btn${activeTab===r.id?' active':''}" onclick="switchTab('${r.id}')">${r.label}</button>`;
+
+});
+
+  tabsEl.innerHTML=tabsHTML;
+
+  // Build content
+
+  if(activeTab==='resumen'){
+
+    contentEl.innerHTML=renderResumen();
+
+  } else {
+
+    const rev=REVISIONES.find(r=>r.id===activeTab);
+
+    if(rev) contentEl.innerHTML=renderRevision(rev);
+
+  }
+
+}
+
+function switchTab(id){
+
+  activeTab=id;
+
+  render();
+
+}
+
+render();
+
+</script>
+
+  </body>
+
+  </html>
