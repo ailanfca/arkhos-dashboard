@@ -88,41 +88,42 @@ const pct = (n) => (n * 100).toFixed(1) + '%';
 
 const REVISIONES = [
   {
-    id:"rev_28abr",
-    label:"28 abr",
-    fecha:"28 de abril, 2026",
-    utilidad:201067,utilidadMeta:170000,
-    ocupacion:0.9029,totalNoches:507,nochesTotales:561,
-    facturacion:435100,facturacionMeta:430000,
-    gastos:273819,gastosMeta:250000,
-    balanceBancario:1048834,
-    pendientesPorEntrar:39787,
-    totalAcumulado:474887,
-    capInstaladaUSD:650,capInstaladaMXN:10725,capConDescuento:8938,nochesDisponibles:12,
-    facturacionProyectada:483824,utilidadProyectada:211792,
-    totalLimpiezas:78,costoPersonal:41000,comisiones:8300,totalPagadoLimpiezas:52414,
+    id:"rev_29abr",
+    label:"29 abr",
+    fecha:"29 de abril, 2026",
+    utilidad:202089,utilidadMeta:170000,
+    ocupacion:0.9064,totalNoches:509,nochesTotales:561,
+    facturacion:442873,facturacionMeta:430000,
+    facturacionFinalProyectada:487458,
+    gastos:285369,gastosMeta:250000,
+    balanceBancario:1056607,
+    pendientesPorEntrar:44585,
+    totalAcumulado:487458,
+    capInstaladaUSD:368,capInstaladaMXN:6072,capConDescuento:5060,nochesDisponibles:6,
+    facturacionProyectada:492518,utilidadProyectada:208161,
+    totalLimpiezas:96,costoPersonal:50600,comisiones:10250,totalPagadoLimpiezas:63964,
     cfeLuz:1078,agua:5362,gas:3045,internetFraxc:8851,totalServicios:18336,
     totalInsumos:27362,
     espacios:[
-      {num:1,nombre:"Aurea 1 (Casa)",rating:4.67,reviews:42,pct:1.00},
-      {num:2,nombre:"Aurea 2 (Casa)",rating:4.59,reviews:58,pct:0.8571},
-      {num:3,nombre:"Aurea 2 Depa 2",rating:4.53,reviews:47,pct:0.80},
-      {num:4,nombre:"Aurea 3 (Casa)",rating:4.61,reviews:134,pct:0.8966},
-      {num:5,nombre:"Aurea 3 Depa 1",rating:4.86,reviews:36,pct:1.00},
-      {num:6,nombre:"Aurea 3 Depa 2",rating:4.62,reviews:21,pct:0.90},
-      {num:7,nombre:"Aurea 3 Depa 3",rating:4.93,reviews:29,pct:0.8148},
-      {num:8,nombre:"Creta 1 Depa 1",rating:5.00,reviews:10,pct:0.8571},
-      {num:9,nombre:"Creta 1 Depa 2",rating:5.00,reviews:7,pct:0.9333},
-      {num:10,nombre:"Creta 1 Depa 3",rating:5.00,reviews:4,pct:0.8667},
-      {num:11,nombre:"Creta 1 Depa 4",rating:5.00,reviews:4,pct:0.9667},
-      {num:12,nombre:"Creta 1 Depa 5",rating:5.00,reviews:4,pct:0.8667},
-      {num:13,nombre:"Creta 2 Depa 1",rating:4.72,reviews:29,pct:0.8966},
-      {num:14,nombre:"Creta 2 Depa 2",rating:4.59,reviews:32,pct:0.9333},
-      {num:15,nombre:"Creta 2 Depa 3",rating:4.67,reviews:21,pct:0.90},
-      {num:16,nombre:"Creta 3 Depa 1",rating:4.69,reviews:16,pct:0.9333},
-      {num:17,nombre:"Creta 3 Depa 2",rating:4.81,reviews:16,pct:0.9333},
-      {num:18,nombre:"Creta 3 Depa 3",rating:4.95,reviews:19,pct:0.90},
-      {num:19,nombre:"Creta 3 Depa 4",rating:5.00,reviews:18,pct:0.90}
+      {num:1, nombre:"Áurea 1 (Casa)",       rating:4.67, reviews:42,  pct:1.0000, distintivo:""},
+      {num:2, nombre:"Áurea 2 (Casa)",        rating:4.59, reviews:58,  pct:0.8571, distintivo:""},
+      {num:3, nombre:"Áurea 2 Depa 2",        rating:4.53, reviews:47,  pct:0.8000, distintivo:""},
+      {num:4, nombre:"Áurea 3 (Casa)",         rating:4.61, reviews:134, pct:0.8966, distintivo:""},
+      {num:5, nombre:"Áurea 3 Depa 1",        rating:4.86, reviews:36,  pct:1.0000, distintivo:"🏆"},
+      {num:6, nombre:"Áurea 3 Depa 2",        rating:4.62, reviews:21,  pct:0.9667, distintivo:""},
+      {num:7, nombre:"Áurea 3 Depa 3",        rating:4.93, reviews:29,  pct:0.8148, distintivo:"🏆"},
+      {num:8, nombre:"Creta 1 Depa 1",        rating:5.00, reviews:10,  pct:0.8571, distintivo:"🏆⭐"},
+      {num:9, nombre:"Creta 1 Depa 2",        rating:5.00, reviews:7,   pct:0.9333, distintivo:"🏆⭐"},
+      {num:10,nombre:"Creta 1 Depa 3",        rating:5.00, reviews:4,   pct:0.8667, distintivo:"⭐"},
+      {num:11,nombre:"Creta 1 Depa 4",        rating:5.00, reviews:4,   pct:0.9667, distintivo:"⭐"},
+      {num:12,nombre:"Creta 1 Depa 5",        rating:5.00, reviews:4,   pct:0.8667, distintivo:"⭐"},
+      {num:13,nombre:"Creta 2 Depa 1",        rating:4.72, reviews:29,  pct:0.8966, distintivo:""},
+      {num:14,nombre:"Creta 2 Depa 2",        rating:4.59, reviews:32,  pct:0.9333, distintivo:""},
+      {num:15,nombre:"Creta 2 Depa 3",        rating:4.67, reviews:21,  pct:0.9000, distintivo:""},
+      {num:16,nombre:"Creta 3 Depa 1",        rating:4.69, reviews:16,  pct:0.9333, distintivo:"⭐"},
+      {num:17,nombre:"Creta 3 Depa 2",        rating:4.81, reviews:16,  pct:0.9333, distintivo:"⭐"},
+      {num:18,nombre:"Creta 3 Depa 3",        rating:4.95, reviews:19,  pct:0.9000, distintivo:"🏆⭐"},
+      {num:19,nombre:"Creta 3 Depa 4",        rating:5.00, reviews:18,  pct:0.9000, distintivo:"🏆⭐"}
     ]
   }
 ];
@@ -137,6 +138,26 @@ function pctLabel(ratio,inverse){
   return `<span class="${cls}">${txt}</span>`;
 }
 
+const HISTORICO = [
+  {mes:"Dic 2024", ingresos:152660, egresos:279774, utilidad:-127114},
+  {mes:"Ene 2025", ingresos:168032, egresos:231621, utilidad:-63589},
+  {mes:"Feb 2025", ingresos:176381, egresos:249154, utilidad:-72773},
+  {mes:"Mar 2025", ingresos:212167, egresos:247502, utilidad:-35335},
+  {mes:"Abr 2025", ingresos:224387, egresos:231927, utilidad:-7540},
+  {mes:"May 2025", ingresos:204631, egresos:245623, utilidad:-30992},
+  {mes:"Jun 2025", ingresos:267048, egresos:251119, utilidad:25929},
+  {mes:"Jul 2025", ingresos:272262, egresos:233756, utilidad:48506},
+  {mes:"Ago 2025", ingresos:271252, egresos:226105, utilidad:55147},
+  {mes:"Sep 2025", ingresos:270352, egresos:208069, utilidad:72283},
+  {mes:"Oct 2025", ingresos:301846, egresos:229228, utilidad:82618},
+  {mes:"Nov 2025", ingresos:284177, egresos:240831, utilidad:53346},
+  {mes:"Dic 2025", ingresos:248590, egresos:252982, utilidad:5608},
+  {mes:"Ene 2026", ingresos:329771, egresos:285369, utilidad:44401},
+  {mes:"Feb 2026", ingresos:368469, egresos:272206, utilidad:96263},
+  {mes:"Mar 2026", ingresos:428691, egresos:257943, utilidad:170748},
+  {mes:"Abr 2026", ingresos:487458, egresos:285369, utilidad:202089},
+];
+
 function renderResumen(){
   if(REVISIONES.length===0) return '<p style="color:rgba(255,255,255,0.4);padding:2rem 0;">No hay revisiones cargadas aún.</p>';
   const last=REVISIONES[REVISIONES.length-1];
@@ -150,6 +171,41 @@ function renderResumen(){
       <td>${fmt(r.balanceBancario)}</td>
     </tr>`).join('');
 
+  // Tabla histórico invertida (más reciente primero)
+  const histInv = [...HISTORICO].reverse();
+  const histRows = histInv.map(h=>{
+    const uColor = h.utilidad>=0?'#4ade80':'#f87171';
+    const uSign = h.utilidad>=0?'+':'';
+    const maxVal = Math.max(...HISTORICO.map(x=>x.ingresos));
+    const barW = Math.round((h.ingresos/maxVal)*100);
+    const eBarW = Math.round((h.egresos/maxVal)*100);
+    return `<tr>
+      <td style="white-space:nowrap;color:rgba(255,255,255,0.5);font-size:12px">${h.mes}</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:2px;height:5px;min-width:60px">
+            <div style="width:${barW}%;height:100%;background:#60a5fa;border-radius:2px"></div>
+          </div>
+          <span style="font-size:12px;min-width:70px;text-align:right">${fmt(h.ingresos)}</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:2px;height:5px;min-width:60px">
+            <div style="width:${eBarW}%;height:100%;background:rgba(251,191,36,0.6);border-radius:2px"></div>
+          </div>
+          <span style="font-size:12px;min-width:70px;text-align:right">${fmt(h.egresos)}</span>
+        </div>
+      </td>
+      <td style="font-size:13px;font-weight:500;color:${uColor};text-align:right">${uSign}${fmt(h.utilidad)}</td>
+    </tr>`;
+  }).join('');
+
+  const totalIngresos = HISTORICO.reduce((s,h)=>s+h.ingresos,0);
+  const totalEgresos = HISTORICO.reduce((s,h)=>s+h.egresos,0);
+  const totalUtilidad = HISTORICO.reduce((s,h)=>s+h.utilidad,0);
+  const mesesPositivos = HISTORICO.filter(h=>h.utilidad>0).length;
+
   return `
     <div class="section-label">Última revisión — ${last.fecha}</div>
     <div class="kpi-grid">
@@ -159,15 +215,147 @@ function renderResumen(){
       <div class="kpi-card kpi-neutral"><div class="kpi-label">Gastos</div><div class="kpi-value">${fmt(last.gastos)}</div><div class="kpi-sub">Meta ${fmt(last.gastosMeta)}</div></div>
     </div>
     <hr class="divider">
-    <div class="section-label">Comparativa de revisiones</div>
-    <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
+    <div class="section-label">Comparativa de revisiones del mes</div>
+    <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
       <table class="summary-table">
         <thead><tr><th>Revisión</th><th>Facturación</th><th>Gastos</th><th>Utilidad</th><th>Ocupación</th><th>Balance banco</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p class="summary-note">El resumen se actualiza automáticamente cada vez que se agrega una nueva revisión.</p>
+    <hr class="divider">
+    <div class="section-label">Reporte de rentabilidad mensual — Dic 2024 a Abr 2026</div>
+
+    <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:16px;margin-bottom:1rem">
+      <canvas id="histChart" height="260" style="width:100%;display:block"></canvas>
+      <div style="display:flex;gap:20px;justify-content:center;margin-top:12px">
+        <span style="font-size:12px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:5px"><span style="display:inline-block;width:12px;height:12px;background:#4ade80;border-radius:2px"></span>Ingresos</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:5px"><span style="display:inline-block;width:12px;height:12px;background:#fb923c;border-radius:2px"></span>Egresos</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:5px"><span style="display:inline-block;width:12px;height:3px;background:#93c5fd;border-radius:2px;margin-bottom:1px"></span>Utilidad</span>
+      </div>
+    </div>
+    <div style="background:#1f1f1f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
+      <table class="summary-table">
+        <thead>
+          <tr><th>Mes</th><th>Ingresos</th><th>Egresos</th><th style="text-align:right">Utilidad</th></tr>
+        </thead>
+        <tbody>${histRows}</tbody>
+        <tfoot>
+          <tr style="background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:9px 8px;font-weight:600;color:#f0f0f0">Total acumulado</td>
+            <td style="padding:9px 8px;font-weight:600;color:#60a5fa">${fmt(totalIngresos)}</td>
+            <td style="padding:9px 8px;font-weight:600;color:rgba(251,191,36,0.9)">${fmt(totalEgresos)}</td>
+            <td style="padding:9px 8px;font-weight:600;color:#4ade80;text-align:right">${fmt(totalUtilidad)}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="summary-note">Datos históricos tomados de la hoja HISTORICO del archivo de resultados.</p>
   `;
+}
+
+function drawHistChart(){
+  const canvas = document.getElementById('histChart');
+  if(!canvas) return;
+  const dpr = window.devicePixelRatio||1;
+  const W = canvas.parentElement.clientWidth - 32;
+  const H = 260;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W+'px';
+  canvas.style.height = H+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const data = HISTORICO;
+  const n = data.length;
+  const padL=52, padR=60, padT=20, padB=40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+
+  const maxBar = Math.max(...data.map(d=>Math.max(d.ingresos,d.egresos)));
+  const minUtil = Math.min(...data.map(d=>d.utilidad));
+  const maxUtil = Math.max(...data.map(d=>d.utilidad));
+  const utilRange = maxUtil - minUtil;
+  const barW = chartW / n;
+  const grpW = barW * 0.72;
+  const bW = grpW / 2;
+
+  // Grid lines (left axis)
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  for(let i=0;i<=4;i++){
+    const y = padT + chartH * (i/4);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL+chartW, y); ctx.stroke();
+    const val = maxBar * (1 - i/4);
+    ctx.fillStyle='rgba(255,255,255,0.3)';
+    ctx.font='10px system-ui';
+    ctx.textAlign='right';
+    ctx.fillText('$'+Math.round(val/1000)+'k', padL-6, y+4);
+  }
+
+  // Right axis labels (utilidad)
+  ctx.textAlign='left';
+  for(let i=0;i<=4;i++){
+    const val = minUtil + utilRange*(i/4);
+    const y = padT + chartH*(1 - i/4);
+    ctx.fillStyle='rgba(147,197,253,0.45)';
+    ctx.font='10px system-ui';
+    ctx.fillText((val>=0?'+':'')+Math.round(val/1000)+'k', padL+chartW+6, y+4);
+  }
+
+  // Zero line for utilidad (right axis)
+  const zeroY = padT + chartH * (1 - (0-minUtil)/utilRange);
+  ctx.strokeStyle='rgba(147,197,253,0.15)';
+  ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(padL, zeroY); ctx.lineTo(padL+chartW, zeroY); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Bars
+  data.forEach((d,i)=>{
+    const x = padL + i*barW + (barW-grpW)/2;
+    // Ingresos
+    const iH = (d.ingresos/maxBar)*chartH;
+    ctx.fillStyle='rgba(74,222,128,0.75)';
+    ctx.fillRect(x, padT+chartH-iH, bW, iH);
+    // Egresos
+    const eH = (d.egresos/maxBar)*chartH;
+    ctx.fillStyle='rgba(251,146,60,0.75)';
+    ctx.fillRect(x+bW, padT+chartH-eH, bW, eH);
+  });
+
+  // Utilidad line
+  ctx.strokeStyle='#93c5fd';
+  ctx.lineWidth=2;
+  ctx.lineJoin='round';
+  ctx.beginPath();
+  data.forEach((d,i)=>{
+    const x = padL + i*barW + barW/2;
+    const y = padT + chartH*(1-(d.utilidad-minUtil)/utilRange);
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // Dots on line
+  data.forEach((d,i)=>{
+    const x = padL + i*barW + barW/2;
+    const y = padT + chartH*(1-(d.utilidad-minUtil)/utilRange);
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI*2);
+    ctx.fillStyle = d.utilidad>=0?'#4ade80':'#f87171';
+    ctx.fill();
+    ctx.strokeStyle='#1f1f1f'; ctx.lineWidth=1.5; ctx.stroke();
+  });
+
+  // X labels
+  ctx.fillStyle='rgba(255,255,255,0.35)';
+  ctx.font='10px system-ui';
+  ctx.textAlign='center';
+  data.forEach((d,i)=>{
+    const x = padL + i*barW + barW/2;
+    const lbl = d.mes.replace(' ','\\n').split(' ');
+    ctx.fillText(lbl[0], x, padT+chartH+14);
+    if(lbl[1]) ctx.fillText(lbl[1], x, padT+chartH+25);
+  });
 }
 
 function renderRevision(r){
@@ -178,7 +366,8 @@ function renderRevision(r){
   const espaciosRows=r.espacios.map(e=>{
     const p=Math.round(e.pct*100);
     const stars=e.rating===5?'★ 5.0':`★ ${e.rating.toFixed(2)}`;
-    return `<tr><td class="num">${e.num}</td><td>${e.nombre}</td><td style="color:#fbbf24;font-weight:500">${stars} <span style="color:rgba(255,255,255,0.35);font-weight:400;font-size:12px">(${e.reviews} reseñas)</span></td><td><span class="badge ${badgeClass(e.pct)}"><span class="dot ${dotClass(e.pct)}"></span>${p}%</span></td></tr>`;
+    const dist=e.distintivo?`<span style="font-size:11px;margin-left:5px;opacity:0.8">${e.distintivo}</span>`:'';
+    return `<tr><td class="num">${e.num}</td><td>${e.nombre}</td><td style="color:#fbbf24;font-weight:500">${stars}${dist} <span style="color:rgba(255,255,255,0.35);font-weight:400;font-size:12px">(${e.reviews} reseñas)</span></td><td><span class="badge ${badgeClass(e.pct)}"><span class="dot ${dotClass(e.pct)}"></span>${p}%</span></td></tr>`;
   }).join('');
 
   return `
@@ -187,6 +376,7 @@ function renderRevision(r){
       <div class="kpi-card kpi-green"><div class="kpi-label">Utilidad neta</div><div class="kpi-value">${fmt(r.utilidad)}</div><div class="kpi-sub">Meta ${fmt(r.utilidadMeta)} · +${Math.round((uRatio-1)*100)}%</div></div>
       <div class="kpi-card kpi-green"><div class="kpi-label">Ocupación acumulada</div><div class="kpi-value">${(r.ocupacion*100).toFixed(1)}%</div><div class="kpi-sub">${r.totalNoches} / ${r.nochesTotales} noches</div></div>
       <div class="kpi-card kpi-blue"><div class="kpi-label">Facturación al día</div><div class="kpi-value">${fmt(r.facturacion)}</div><div class="kpi-sub">Meta ${fmt(r.facturacionMeta)} · +${Math.round((fRatio-1)*100)}%</div></div>
+      <div class="kpi-card" style="background:rgba(96,165,250,0.05);border:1px solid rgba(96,165,250,0.15)"><div class="kpi-label" style="color:rgba(96,165,250,0.6)">Facturación final proyectada</div><div class="kpi-value" style="color:#93c5fd">${fmt(r.facturacionFinalProyectada)}</div><div class="kpi-sub">Banco + pendientes Airbnb (${fmt(r.pendientesPorEntrar)})</div></div>
       <div class="kpi-card kpi-neutral"><div class="kpi-label">Gastos del mes</div><div class="kpi-value">${fmt(r.gastos)}</div><div class="kpi-sub">Meta ${fmt(r.gastosMeta)} · +${Math.round((gRatio-1)*100)}%</div></div>
       <div class="kpi-card kpi-neutral"><div class="kpi-label">Balance bancario</div><div class="kpi-value">${fmt(r.balanceBancario)}</div><div class="kpi-sub">Saldo al día</div></div>
       <div class="kpi-card kpi-amber"><div class="kpi-label">Pendientes por entrar</div><div class="kpi-value">${fmt(r.pendientesPorEntrar)}</div><div class="kpi-sub">Por enviar de Airbnb</div></div>
@@ -260,10 +450,10 @@ function renderRevision(r){
       </div>
       <div class="meta-block">
         <div class="meta-title">Servicios (CFE, Agua, Gas, Internet)</div>
-        <div class="meta-row"><span class="lbl">CFE</span><span class="val">${fmt(r.cfeLuz)}</span></div>
+        <div class="meta-row"><span class="lbl">CFE (Luz)</span><span class="val">${fmt(r.cfeLuz)}</span></div>
         <div class="meta-row"><span class="lbl">Agua</span><span class="val">${fmt(r.agua)}</span></div>
         <div class="meta-row"><span class="lbl">Gas</span><span class="val">${fmt(r.gas)}</span></div>
-        <div class="meta-row"><span class="lbl">Internet / Fraxc</span><span class="val">${fmt(r.internetFraxc)}</span></div>
+        <div class="meta-row"><span class="lbl">Internet / Fraxc</span><span class="val">${fmt(5800)}</span></div>
         <div class="meta-row total-row"><span class="lbl">Total servicios</span><span class="val">${fmt(r.totalServicios)}</span></div>
       </div>
     </div>
@@ -303,9 +493,11 @@ function render(){
 function switchTab(id){
   activeTab=id;
   render();
+  if(id==='resumen') setTimeout(drawHistChart, 50);
 }
 
 render();
+setTimeout(drawHistChart, 50);
 </script>
 </body>
 </html>
